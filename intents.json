@@ -1,0 +1,48 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
+         "responses": ["Hello!", "Good to see you again!", "Hi there"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
+         "responses": ["Sad to see you go :(", "Talk to you later", "Goodbye!"],
+         "context_set": ""
+        },
+        {"tag": "age",
+         "patterns": ["how old", "how old is tim", "what is your age", "how old are you", "age?"],
+         "responses": ["I am 18 years old!", "18 years young!"],
+         "context_set": ""
+        },
+        {"tag": "name",
+         "patterns": ["what is your name", "what should I call you", "whats your name?"],
+         "responses": ["You can call me XYRON.", "I'm XYRON!", "I'm XYRON aka Tech With XYRON."],
+         "context_set": ""
+        },
+        {"tag": "shop",
+         "patterns": ["Id like to buy something", "whats on the menu", "what do you recommend?", "could i get something to eat"],
+         "responses": ["We sell chocolate chip cookies for $2!", "Cookies are on the menu!"],
+         "context_set": ""
+        },
+        {"tag": "apple",
+         "patterns": ["predict disease", "what are your hours", "hours of operation"],
+         "responses": ["predict"],
+         "context_set": ""
+        },
+        {"tag": "Q1",
+         "patterns": ["how do i stop smoking now", "stop smoking", "can i stop smoking"],
+         "responses": ["stopping smoking is about will power and being steadfast. you can stop safely by having bupropion or nicotine patch cover initially in consult with a doctor. contact an addiction clinic near you. wishing you best of health thanks"],
+         "context_set": ""
+        },
+        {"tag": "Q2",
+         "patterns": ["could extra caffeine consumption be a cause of mild unilateral breast tenderness?", "breast cancer"],
+         "responses": ["extra caffeine can cause gastric discomfort the pain of which can be felt at one side of breast mostly left side but right also is possible and some times whole chest. get evaluated for any local pathology like mastitis. i hope it helps. stay in touch with your healthcare provider for further guidance as our answers are just for education and counselling purposes and cannot be an alternative to actual visit to a doctor. take care"],
+         "context_set": ""
+        },
+        {"tag": "Q3",
+         "patterns": ["is it fine to exercise with knee pain?", "exercise with pain", "knee pain"],
+         "responses": ["We are open 7am-4pm Monday-Friday!"],
+         "context_set": ""
+        }
+   ]
+}
