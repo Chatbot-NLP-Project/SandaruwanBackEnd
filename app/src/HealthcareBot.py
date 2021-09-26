@@ -10,12 +10,14 @@ from tensorflow.python.framework import ops
 import random
 import json
 import pickle
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+
 
 stemmer = LancasterStemmer()
 
 with open("intents.json") as file:
     data = json.load(file)
-
 
 try:
     with open("data.pickle", "rb") as f:
@@ -36,7 +38,7 @@ except:
         if intent["tag"] not in labels:
             labels.append(intent["tag"])
 
-    words = [stemmer.stem(w.lower()) for w in words if w not in "?"]
+    words = [lemmatizer.lemmatize(w.lower()) for w in words if w not in "?"]
     words = sorted(list(set(words)))
     labels = sorted(labels)
 
@@ -47,7 +49,7 @@ except:
 
     for x, doc in enumerate(docs_x):
         bag = []
-        wrds = [stemmer.stem(w) for w in doc]
+        wrds = [lemmatizer.lemmatize(w) for w in doc]
 
         for w in words:
             if w in wrds:
@@ -62,10 +64,9 @@ except:
         output.append(output_row)
     training = numpy.array(training)
     output = numpy.array(output)
-
     #
-    with open("data.pickle", "wb") as f:
-        pickle.dump((words, labels, training, output), f)
+    # with open("data.pickle", "wb") as f:
+    #     pickle.dump((words, labels, training, output), f)
 
 ops.reset_default_graph()
 
@@ -77,16 +78,15 @@ net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
 model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-model.save("model.tflearn")
+# model.save("model.tflearn")
 
 
 # model.load("model.tflearn")
-
 def bag_of_words(s, words):
     bag = [0 for _ in range(len(words))]
 
     s_words = nltk.word_tokenize(s)
-    s_words = [stemmer.stem(word.lower()) for word in s_words]
+    s_words = [lemmatizer.lemmatize(word.lower()) for word in s_words]
 
     for se in s_words:
         for i, w in enumerate(words):
@@ -103,6 +103,7 @@ def chat1(inp):
     #     if inp.lower() == "quit":
     #         break
 
+
     results = model.predict([bag_of_words(inp, words)])
     results_index = numpy.argmax(results)
     tag = labels[results_index]
@@ -113,6 +114,6 @@ def chat1(inp):
     for tg in data["intents"]:
         if tg["tag"] == tag:
             responses = tg["responses"]
-            print(responses)
+            # print(responses)
             res = random.choice(responses)
     return res

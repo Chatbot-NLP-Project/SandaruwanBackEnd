@@ -39,7 +39,7 @@ def predictDisease(lst):
         # print(prob)
         # print('disease : ' + y_pred[0])
         n = 0
-        return 'Re-enter correct symptoms........... or priorities symptoms'
+        return 0
 
 
 # print(lst)

@@ -14,7 +14,7 @@ CORS(app)
 #######################################################
 ##################''' Controllers '''##################
 #######################################################
-from app.src import User
+from app.src import User, Controllers
 
 
 #######################################################
@@ -54,7 +54,7 @@ def reply():
     if request.method == 'POST':
         # if request.get_json()['msg'] == "Hi":
         re = chat1(request.get_json()['msg'])
-        print(re)
+        # print(re)
         return {"members": re}
 
 @app.route("/predict",methods=["GET","POST"])
@@ -63,3 +63,15 @@ def predict():
         # if request.get_json()['msg'] == "Hi":
         re = predictDisease(request.get_json()['diseases'])
         return {"members": re}
+
+@app.route("/getDoc",methods=["GET","POST"])
+def add():
+    # re = chat1("Hi")
+    return Controllers.getDoctor(mysql);
+
+
+@app.route("/channelDoc",methods=["GET","POST"])
+def channel():
+    # re = chat1("Hi")
+
+    return Controllers.channelDoctor(mysql);
