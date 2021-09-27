@@ -75,3 +75,8 @@ def channel():
     # re = chat1("Hi")
 
     return Controllers.channelDoctor(mysql);
+
+@app.route("/sendFeedback",methods=["GET","POST"])
+def sendFeedback():
+    # re = chat1("Hi")
+    return Controllers.sendFeedback(mysql);

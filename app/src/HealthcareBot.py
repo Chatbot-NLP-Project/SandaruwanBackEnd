@@ -14,6 +14,7 @@ from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 
 
+
 stemmer = LancasterStemmer()
 
 with open("intents.json") as file:
@@ -79,7 +80,6 @@ net = tflearn.regression(net)
 model = tflearn.DNN(net)
 model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
 # model.save("model.tflearn")
-
 
 # model.load("model.tflearn")
 def bag_of_words(s, words):
