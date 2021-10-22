@@ -55,7 +55,7 @@
          "context_set": ""
         },
         {"tag": "findDoctor",
-         "patterns": ["i want to find a doctor", "find a doctor", "get doctor details","I need a doctor","channel a doctor","How can i channel a doctor"],
+         "patterns": ["i want to find a doctor", "find a doctor", "get doctor details","I need a doctor","channel a doctor","How can i channel a doctor","schedule an appointment","make an appointment"],
          "responses": ["findDoctor"],
          "context_set": ""
         },

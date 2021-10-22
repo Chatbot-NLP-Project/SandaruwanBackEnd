@@ -78,9 +78,9 @@ net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
-#
-# model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
-# model.save("model.tflearn")
+
+model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
+model.save("model.tflearn")
 
 
 model.load("model.tflearn")
@@ -115,11 +115,22 @@ def chat1(inp):
     # res = ""
     # print(type(results))
     # print(results[0][results_index])
+    #
 
-    for tg in data["intents"]:
-        if tg["tag"] == tag:
-            responses = tg["responses"]
-            print(responses)
-            res = random.choice(responses)
+    # for tg in data["intents"]:
+    #     if tg["tag"] == tag:
+    #         responses = tg["responses"]
+    #         print(responses)
+    #         res = random.choice(responses)
+    #
+    # return res
 
+    if results[results_index] > 0.6:
+        for tg in data["intents"]:
+            if tg["tag"] == tag:
+                responses = tg["responses"]
+                print(responses)
+                res = random.choice(responses)
+    else:
+        res = "I didn't understand it"
     return res

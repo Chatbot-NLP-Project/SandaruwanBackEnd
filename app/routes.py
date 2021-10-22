@@ -64,8 +64,8 @@ def reply():
 def predict():
     if request.method == 'POST':
         # if request.get_json()['msg'] == "Hi":
-        re = predictDisease(request.get_json()['diseases'])
-        return {"members": re}
+        # re = predictDisease(request.get_json()['diseases'])
+        return {"members": "re"}
 
 @app.route("/getDoc",methods=["GET","POST"])
 def add():
@@ -83,3 +83,15 @@ def channel():
 def sendFeedback():
     # re = chat1("Hi")
     return Controllers.sendFeedback(mysql);
+
+
+@app.route("/getClinic", methods=["GET", "POST"])
+def getClinic():
+    # re = chat1("Hi")
+    return Controllers.getClinic(mysql);
+
+
+@app.route("/getEyeClinic", methods=["GET", "POST"])
+def getEyeClinic():
+    # re = chat1("Hi")
+    return Controllers.getClinic(mysql);
