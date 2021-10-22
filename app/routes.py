@@ -6,7 +6,7 @@ from app import app
 from app import mysql
 #A Flask extension for handling Cross Origin Resource Sharing (CORS), making cross-origin AJAX possible.
 #Axios doesnt work without this
-from app.src.Disease import predictDisease
+# from app.src.Disease import predictDisease
 from app.src.HealthcareBot import chat1
 
 CORS(app)
