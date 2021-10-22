@@ -45,7 +45,7 @@ def logout():
 
 @app.route("/")
 def test():
-    return {"members":["Member","Sandaruwan"]}
+    return {"members":["Member","Hello Sandaruwan"]}
 
 @app.route("/chat")
 def chat():
