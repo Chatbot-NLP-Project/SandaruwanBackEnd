@@ -98,7 +98,7 @@ def bag_of_words(s, words):
     return numpy.array(bag)
 
 
-def chat(inp):
+def chat1(inp):
     # print("Start talking with bot")
     # while True:
     #     inp = input("You: ")
@@ -114,12 +114,11 @@ def chat(inp):
     # res = ""
     # print(type(results))
     # print(results[0][results_index])
-    if results[results_index] > 0.7:
-        for tg in data["intents"]:
-            if tg["tag"] == tag:
-                responses = tg["responses"]
-                print(responses)
-                res = random.choice(responses)
-    else:
-        res = "I didn't understand it"
+
+    for tg in data["intents"]:
+        if tg["tag"] == tag:
+            responses = tg["responses"]
+            print(responses)
+            res = random.choice(responses)
+    
     return res
