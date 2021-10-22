@@ -43,6 +43,9 @@ def logout():
 ################''' Telecom Routes '''#################
 #######################################################
 
+@app.route("/")
+def test():
+    return {"members":["Member","Sandaruwan"]}
 
 @app.route("/chat")
 def chat():
