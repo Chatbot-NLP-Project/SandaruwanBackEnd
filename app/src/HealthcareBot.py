@@ -3,6 +3,7 @@ from app import routes
 from app import db
 
 import nltk
+nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 
 import numpy
@@ -77,7 +78,7 @@ net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
-
+#
 # model.fit(training, output, n_epoch=1000, batch_size=8, show_metric=True)
 # model.save("model.tflearn")
 
@@ -120,5 +121,5 @@ def chat1(inp):
             responses = tg["responses"]
             print(responses)
             res = random.choice(responses)
-    
+
     return res
